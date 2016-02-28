@@ -1,0 +1,31 @@
+application: ammar-husain
+version: 1
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+#Static Files
+
+- url: /
+  static_files: static/index.html
+  upload: static/index\.html
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: static/\1
+  upload: static/(.*\.css)
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: static/\1
+  upload: static/(.*\.js)
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png|svg|woff|ttf))
+  static_files: static/\1
+  upload: static/(.*\.(bmp|gif|ico|jpeg|jpg|png|svg|woff|ttf))
+#- url: /mail
+#  script: main.webapp
+#  secure: always
+
+libraries:
+
+- name: webapp2
+  version: latest
